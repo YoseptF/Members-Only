@@ -7,11 +7,12 @@ class RootLayoutTest < ActionDispatch::IntegrationTest
   test 'main page shows all elements, before and after loggin in' do
     get root_path
     assert_template 'main/index'
-    assert_select 'div.header'
-    assert_select 'div.nav'
+    assert_select 'header'
+    assert_select 'nav'
     assert_select 'div.pagination'
-    assert_select 'div.footer'
-    assert_select 'a[href=#]', count: 3
+    assert_select 'footer'
+    assert_select 'a[href=#]', count: 2
+    assert_select 'button.login'
 
     login_with_user(@user)
 
