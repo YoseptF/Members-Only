@@ -4,10 +4,13 @@
   </div>
   <nav>
     <ul>
-      <li><%= link_to 'Home', "#" %></li>
-      <li><%= link_to 'Gossip', "#"%></li>
-      <li><%= link_to 'signup', signup_path, class: 'signup' %></li>
-      <li><%= link_to 'login', login_path, class: 'login' %></li>
+      <li><%= link_to 'Home', root_path %></li>
+      <% unless logged_in? %>
+        <li><%= link_to 'signup', signup_path, class: 'signup' %></li>
+        <li><%= link_to 'login', login_path, class: 'login' %></li>
+      <% else %>
+        <%= link_to  'logout', logout_path, method: :delete, class: 'login' %>
+      <% end %>
     </ul>
   </nav>
 </header>
