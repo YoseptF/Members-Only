@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-
   end
 
   def show
@@ -29,6 +28,6 @@ class UsersController < ApplicationController
       :email,
       :password,
       :password_confirmation
-      )
+    )
   end
 end

@@ -1,4 +1,4 @@
-<% if new_sub.errors.count > 0 %>
+<% if new_sub&.errors.count > 0 %>
   <% new_sub.errors.full_messages.each do |error| %>
     <span><%= error %></span>
   <% end %>
