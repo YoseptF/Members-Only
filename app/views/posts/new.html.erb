@@ -1,1 +1,11 @@
-<h3>hey im the new posts</h3>
+<%= render  "shared/error_messages", new_sub: @post %>
+
+<%= form_for @post do |f| %>
+  <%= f.label :user_id, "user_id" %>
+  <%= f.text_field :user_id %>
+
+  <%= f.label :content, "content" %>
+  <%= f.text_area :content %>
+
+    <%= f.submit 'Send post' %>
+  <% end %>
