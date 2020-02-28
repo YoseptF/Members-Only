@@ -1,6 +1,5 @@
 class MainController < ApplicationController
   def index
-    @users = User.all
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page])
   end
 end

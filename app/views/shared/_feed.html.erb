@@ -1,8 +1,5 @@
 <div class="feed">
-  <% @posts.each do |post| %>
-    <div class="capsule">
-      <h2><%= post.user.username if logged_in? %></h2>
-      <p><%= post.content %></p>
-    </div>
-  <% end %>
+  <%= will_paginate @posts %>
+
 </div>
+

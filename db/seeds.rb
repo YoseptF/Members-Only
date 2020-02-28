@@ -13,19 +13,23 @@ User.create(
   password_confirmation: 'pablito'
 )
 
-User.create(
-  username: 'Javier',
-  email: 'javier@texmex.mx',
-  password: 'javier',
-  password_confirmation: 'javier'
-)
-
 Post.create(
   user_id: 1,
-  content: Faker::Lorem.words(number:12)
+  content: "SOMEONE HELP ME!! I DON'T UNDERSTAND ANYTHING!!!!!!\n Are they all possesed?"
 )
 
-Post.create(
-  user_id: 2,
-  content: Faker::Lorem.sentence(word_count:12)
-)
+25.times do |time|
+  User.create(
+    username: Faker::Name.name,
+    email: "mail_#{time}@gmail.com",
+    password: "foobar",
+    password_confirmation: "foobar",
+  )
+end
+
+45.times do |time|
+  Post.create(
+    user_id: Random.rand(1..26),
+    content: Faker::Lorem.sentence(word_count:12)
+  )
+end
