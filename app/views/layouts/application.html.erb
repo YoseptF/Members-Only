@@ -4,18 +4,17 @@
     <title>MembersOnly</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
     <%= render  "layouts/header" %>
-    <%= yield %>
-    <p><%= debug(params) %></p>
+    <div class="container">
+      <%= yield %>
+    </div>
     <%= render  "layouts/footer" %>
   </body>
 </html>

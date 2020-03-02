@@ -4,11 +4,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    user = session[:user_id]
+    @post = Post.new(user_id: user, content: post_params[:content])
     if @post.save
       flash[:success] = 'You succesfully made a new comment'
       redirect_to root_path
     else
+      flash[:success] = session[:user_id]
       render 'new'
     end
   end
@@ -18,6 +20,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :content)
+    params.require(:post).permit(:content)
   end
 end
