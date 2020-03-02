@@ -29,13 +29,13 @@ gem 'will_paginate', '>= 3.1.6'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'faker'
 
 group :development, :test do
   gem 'guard-livereload'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Use sqlite3 as the database for Active Record
-  gem 'faker'
   gem 'hirb'
   gem 'sqlite3', '~> 1.4'
 end
