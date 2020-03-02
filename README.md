@@ -2,31 +2,29 @@
 
 > ON this project we made an application where you can post things if you are part of the club (_verified with your loggin information_), then members can see both, what was posted and by whom, but if you're not part of the clubhouse, you can only wonder with the comments.
 
+## Non-member
 ![image](https://i.imgur.com/y5GNPEY.png)
-
+## Member
 ![image](https://i.imgur.com/yH5r1qR.png)
 
 ## Models
 
-- User:
-  - Has and unique _username_, unique _email_ and a _password_ created by a password and a confirmation (thanks to the **bcrypt** gem)
+> For this project we used 2 models:
+  - User:
+    - Can post comments
+    - Has many posts
+  - Posts:
+    -Belong to a user
 
-  - Is able to post comments
-  - Is able to create posts 
-- Post
-  - Has a title
-  - Has content
-  - Has many comments
-- Comment
-  - Belongs to a user, and also to a Post, where it was... well posted.
+![image](https://i.imgur.com/VK4srkc.png)
 
 ### How to use
 
-You can try the models yoursel by:
+You can either clone the repo and play with it on your machine, or you can access it throw the live [heroku version](https://intense-sands-50703.herokuapp.com/) (probably only up while testing), to clone do:
 
 - Cloning the repo:
   ```
-  $ git clone git@github.com:YoseptF/micro-reddit.git
+  $ git clone git@github.com:YoseptF/Members-Only.git
   ```
 - Checkout to the correct branch (this depends on what are you testing, exp: develop, feature/_your desired feature_, etc.):
   ```
@@ -40,9 +38,10 @@ You can try the models yoursel by:
   ```
   $ yarn install --check-files
   ```
-- Run your tests on the console
+- Loggin with this credentials
   ```
-  $ rails c
+  User: pablito@texmex.mx
+  Password: pablito
   ```
 ## Built With
 
