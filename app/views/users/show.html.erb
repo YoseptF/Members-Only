@@ -1,2 +1,8 @@
-<h1><%= @user.username %></h1>
-<h1><%= @user.email %></h1>
+<div class="profile">
+  <%= gravatar_for(@user) %>
+  <div class="info">
+    <h1>Username: <%= @user.username %></h1>
+    <h1>Email: <%= @user.email %></h1>
+    <%= link_to  "Update your information", edit_user_path(@user) %>
+  </div>
+</div>

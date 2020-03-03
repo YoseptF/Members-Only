@@ -105,7 +105,8 @@ div.pagination {
 .container {
   height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   form {
     display: flex;
     flex-direction: column;
@@ -146,6 +147,13 @@ div.pagination {
     textarea {
       height: 200px;
       line-height: 18px;
+    }
+  }
+
+  .profile {
+    display: flex;
+    .info {
+      padding-left: 10px;
     }
   }
 }
