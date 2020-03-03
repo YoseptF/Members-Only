@@ -26,7 +26,7 @@ class User < ApplicationRecord
     self.remember_token = SecureRandom.urlsafe_base64
     update_attribute(:remember_digest, digest(remember_token))
   end
-  
+
   def remember_first
     self.remember_token = SecureRandom.urlsafe_base64.to_s
     self.remember_digest = digest(remember_token)
