@@ -13,9 +13,10 @@ class User < ApplicationRecord
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
-  
+
   def authenticated?(remember_token)
     return false if remember_digest.nil?
+
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
@@ -23,7 +24,7 @@ class User < ApplicationRecord
     self.remember_token = SecureRandom.urlsafe_base64
     update_attribute(:remember_digest, digest(remember_token))
   end
-  
+
   def forget
     self.remember_token = nil
     update_attribute(:remember_digest, nil)

@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :user_logged_in?, only: %i[new create]
 
   def index
-    @posts = Post.paginate(page: params[:page],per_page: 10)
+    @posts = Post.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -31,6 +31,7 @@ class PostsController < ApplicationController
 
   def user_logged_in?
     return nil if logged_in?
+
     flash[:danger] = 'please loggin before you can comment'
     redirect_to login_path
   end
