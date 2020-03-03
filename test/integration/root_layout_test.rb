@@ -14,7 +14,7 @@ class RootLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href='#']", count: 2
     assert_select 'button.login'
 
-    login_with_user(@user)
+    log_in(@user)
 
     assert_select "a[href='#']", count: 3
   end

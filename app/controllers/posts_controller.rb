@@ -1,4 +1,10 @@
 class PostsController < ApplicationController
+  before_action :user_logged_in?, only: %i[new create]
+
+  def index
+    @posts = Post.paginate(page: params[:page],per_page: 10)
+  end
+
   def new
     @post = Post.new
   end
@@ -21,5 +27,11 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:content)
+  end
+
+  def user_logged_in?
+    return nil if logged_in?
+    flash[:danger] = 'please loggin before you can comment'
+    redirect_to login_path
   end
 end
