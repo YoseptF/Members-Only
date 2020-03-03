@@ -1,9 +1,11 @@
 class User < ApplicationRecord
+  before_create :remember_first
+
   attr_accessor :remember_token
   has_many :posts
 
   validates :username, presence: true, length: { in: 6..15 }
-  validates :email, presence: true, length: { maximum: 40 },
+  validates :email, presence: true, length: { maximum: 40 }, uniqueness: { case_sensitive: false },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze }
   validates :password, presence: true, length: { in: 6..15 }
 
@@ -23,6 +25,11 @@ class User < ApplicationRecord
   def remember
     self.remember_token = SecureRandom.urlsafe_base64
     update_attribute(:remember_digest, digest(remember_token))
+  end
+  
+  def remember_first
+    self.remember_token = SecureRandom.urlsafe_base64.to_s
+    self.remember_digest = digest(remember_token)
   end
 
   def forget
