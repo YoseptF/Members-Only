@@ -1,0 +1,17 @@
+<header>
+  <div class="logo-wrapper">
+    <%= link_to image_tag('logo.svg'), root_path %>
+  </div>
+  <nav>
+    <ul>
+      <li><%= link_to 'Home', root_path %></li>
+      <% unless logged_in? %>
+        <li><%= link_to 'Sign Up', signup_path, class: 'signup' %></li>
+        <li><%= link_to 'Log In', login_path, class: 'login' %></li>
+      <% else %>
+        <li><%= link_to  'logout', logout_path, method: :delete, class: 'login' %></li>
+        <li><%= link_to 'post', new_post_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

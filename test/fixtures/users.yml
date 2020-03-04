@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+joseph:
+  username: yosept
+  password_digest: 123lol
+  email: yosept@gmail.com
+
+<% 50.times do |i| %>
+user_<%= i %>:
+  username: user_<%= i %>
+  password_digest: foobar
+  email: foo<%= i %>@bar.com
+<% end %>

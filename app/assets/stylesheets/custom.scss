@@ -1,0 +1,151 @@
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: lightgrey;
+}
+
+body {
+  background-color: #252627;
+}
+
+header {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  width: 100%;
+  display: flex;
+  padding-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  background: #131314;
+  .logo-wrapper {
+    height: 100%;
+    img {
+      height: 3rem;
+
+      margin-left: 20px;
+    }
+  }
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin-right: 20px;
+    justify-content: space-between;
+    a {
+      margin-right: 5px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      border: 1px solid lightgrey;
+      border-radius: 4px;
+      padding: 5px 7px;
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  .feed {
+    max-width: 800px;
+    .capsule {
+      margin-bottom: 10px;
+      text-align: center;
+      h2 {
+        border-radius: 4px 4px 0 0;
+        background: #46464a;
+        padding: 5px 0;
+      }
+      p {
+        padding: 14px;
+        background: #36363c;
+      }
+    }
+  }
+}
+
+div.pagination {
+  ul {
+    margin: 35px 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(37, 38, 39, 1) 100%
+    );
+    li {
+      cursor: pointer;
+      flex-grow: 1;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      a {
+        padding: 8px 0;
+        text-decoration: none;
+        height: 100%;
+        width: 100%;
+        flex-grow: 1;
+      }
+      &:hover {
+        background: rgba($color: #fff, $alpha: 0.1);
+      }
+    }
+  }
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 380px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    padding: 30px 20px 40px;
+    label {
+      text-transform: capitalize;
+    }
+    textarea,
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+      padding-left: 12px;
+      font-size: 18px;
+      line-height: 10px;
+      color: grey;
+      height: 34px;
+    }
+
+    input,
+    textarea {
+      margin: 8px 0;
+      border-radius: 4px;
+      &[type="submit"] {
+        cursor: pointer;
+        padding: 12px;
+        background: none;
+        border: 1px solid lightgrey;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+
+    textarea {
+      height: 200px;
+      line-height: 18px;
+    }
+  }
+}
